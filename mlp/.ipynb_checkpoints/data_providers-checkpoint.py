@@ -296,9 +296,15 @@ class EMNISTDataProvider(DataProvider):
 
         """
         
-        raise NotImplementedError
+        num_data = int_targets.shape[0]
+        K = self.num_classes
+
+        # Start with all values = alpha/(K-1)
+        smooth_targets = np.full((num_data, K), alpha / (K-1), dtype = np.float32)
+        smooth_targets[np.arrange(num_data), int_targets] = 1 - alpha
+
+        return smooth_targets
   
-    
 
 class MetOfficeDataProvider(DataProvider):
     """South Scotland Met Office weather data provider."""

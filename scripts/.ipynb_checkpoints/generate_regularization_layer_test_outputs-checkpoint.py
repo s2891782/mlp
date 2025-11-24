@@ -11,7 +11,7 @@ parser = argparse.ArgumentParser(description='Welcome to regularization test scr
 
 parser.add_argument('--student_id', nargs="?", type=str, help='Your student id in the format "Sxxxxxxx"')
 
-args = parser.parse_args()s
+args = parser.parse_args()
 
 student_id = args.student_id
 
