@@ -301,7 +301,7 @@ class EMNISTDataProvider(DataProvider):
 
         # Start with all values = alpha/(K-1)
         smooth_targets = np.full((num_data, K), alpha / (K-1), dtype = np.float32)
-        smooth_targets[np.arrange(num_data), int_targets] = 1 - alpha
+        smooth_targets[np.arange(num_data), int_targets] = 1 - alpha
 
         return smooth_targets
   
